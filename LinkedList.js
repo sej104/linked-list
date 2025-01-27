@@ -94,6 +94,26 @@ class LinkedList {
     }
     return (string += "null");
   }
+
+  insertAt(value, index) {
+    if (index < 0) return;
+    if (index === 0) {
+      this.prepend(value);
+      return;
+    }
+    if (index >= this.size()) {
+      this.append(value);
+      return;
+    }
+
+    let currentIndex = 0;
+    let temp = this.head;
+    while (currentIndex + 1 < index) {
+      temp = temp.nextNode;
+      currentIndex += 1;
+    }
+    temp.nextNode = new Node(value, temp.nextNode);
+  }
 }
 
 export default LinkedList;
