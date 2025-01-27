@@ -114,6 +114,25 @@ class LinkedList {
     }
     temp.nextNode = new Node(value, temp.nextNode);
   }
+
+  removeAt(index) {
+    if (index < 0 || index >= this.size()) return;
+    if (index === 0) {
+      this.head = this.head.nextNode;
+      return;
+    }
+
+    let currentIndex = 0;
+    let previous = null;
+    let current = this.head;
+
+    while (currentIndex < index) {
+      previous = current;
+      current = current.nextNode;
+      currentIndex += 1;
+    }
+    previous.nextNode = current.nextNode;
+  }
 }
 
 export default LinkedList;
