@@ -17,6 +17,16 @@ class LinkedList {
   prepend(value) {
     this.head = new Node(value, this.head);
   }
+
+  size() {
+    let sum = 0;
+    let temp = this.head;
+    while (temp !== null) {
+      temp = temp.nextNode;
+      sum += 1;
+    }
+    return sum;
+  }
 }
 
 export default LinkedList;
