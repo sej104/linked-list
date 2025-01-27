@@ -27,6 +27,10 @@ class LinkedList {
     }
     return sum;
   }
+
+  head() {
+    return this.head;
+  }
 }
 
 export default LinkedList;
