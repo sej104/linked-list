@@ -13,6 +13,10 @@ class LinkedList {
       temp.nextNode = new Node(value, null);
     }
   }
+
+  prepend(value) {
+    this.head = new Node(value, this.head);
+  }
 }
 
 export default LinkedList;
