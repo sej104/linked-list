@@ -6,11 +6,11 @@ class LinkedList {
   }
 
   append(value) {
-    if (this.head === null) this.head = new Node(value, null);
+    if (!this.head) this.head = new Node(value);
     else {
       let temp = this.head;
-      while (temp.nextNode !== null) temp = temp.nextNode;
-      temp.nextNode = new Node(value, null);
+      while (temp.nextNode) temp = temp.nextNode;
+      temp.nextNode = new Node(value);
     }
   }
 
@@ -19,13 +19,13 @@ class LinkedList {
   }
 
   size() {
-    let sum = 0;
+    let count = 0;
     let temp = this.head;
-    while (temp !== null) {
+    while (temp) {
       temp = temp.nextNode;
-      sum += 1;
+      count += 1;
     }
-    return sum;
+    return count;
   }
 
   head() {
@@ -33,9 +33,9 @@ class LinkedList {
   }
 
   tail() {
-    if (this.head === null) return null;
+    if (!this.head) return null;
     let temp = this.head;
-    while (temp.nextNode !== null) temp = temp.nextNode;
+    while (temp.nextNode) temp = temp.nextNode;
     return temp;
   }
 
@@ -51,14 +51,14 @@ class LinkedList {
   }
 
   pop() {
-    if (this.head === null) return;
+    if (!this.head) return;
     if (this.size() === 1) {
       this.head = null;
       return;
     }
-    let previous = null;
+    let previous;
     let current = this.head;
-    while (current.nextNode !== null) {
+    while (current.nextNode) {
       previous = current;
       current = current.nextNode;
     }
@@ -67,7 +67,7 @@ class LinkedList {
 
   contains(value) {
     let temp = this.head;
-    while (temp !== null) {
+    while (temp) {
       if (temp.value === value) return true;
       temp = temp.nextNode;
     }
@@ -77,7 +77,7 @@ class LinkedList {
   find(value) {
     let currentIndex = 0;
     let temp = this.head;
-    while (temp !== null) {
+    while (temp) {
       if (temp.value === value) return currentIndex;
       temp = temp.nextNode;
       currentIndex += 1;
@@ -88,7 +88,7 @@ class LinkedList {
   toString() {
     let temp = this.head;
     let string = "";
-    while (temp !== null) {
+    while (temp) {
       string += `( ${temp.value} ) -> `;
       temp = temp.nextNode;
     }
