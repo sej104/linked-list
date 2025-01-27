@@ -73,6 +73,17 @@ class LinkedList {
     }
     return false;
   }
+
+  find(value) {
+    let index = 0;
+    let temp = this.head;
+    while (temp !== null) {
+      if (temp.value === value) return index;
+      temp = temp.nextNode;
+      index += 1;
+    }
+    return null;
+  }
 }
 
 export default LinkedList;
