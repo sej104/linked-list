@@ -38,6 +38,17 @@ class LinkedList {
     while (temp.nextNode !== null) temp = temp.nextNode;
     return temp;
   }
+
+  at(index) {
+    if (index < 0 || index >= this.size()) return -1;
+    let currentIndex = 0;
+    let temp = this.head;
+    while (currentIndex < index) {
+      temp = temp.nextNode;
+      currentIndex += 1;
+    }
+    return temp;
+  }
 }
 
 export default LinkedList;
