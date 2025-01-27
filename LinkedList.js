@@ -40,7 +40,7 @@ class LinkedList {
   }
 
   at(index) {
-    if (index < 0 || index >= this.size()) return -1;
+    if (index < 0 || index >= this.size()) return null;
     let currentIndex = 0;
     let temp = this.head;
     while (currentIndex < index) {
@@ -75,12 +75,12 @@ class LinkedList {
   }
 
   find(value) {
-    let index = 0;
+    let currentIndex = 0;
     let temp = this.head;
     while (temp !== null) {
-      if (temp.value === value) return index;
+      if (temp.value === value) return currentIndex;
       temp = temp.nextNode;
-      index += 1;
+      currentIndex += 1;
     }
     return null;
   }
